@@ -18,15 +18,16 @@ half_add_sub.v	Arithmetic-circuit RTL
 half_add_sub_tb.v	Stimulus and VCD generation
 
 ### Verilog Program
-```
-```
+gedit half_add_sub.v module half_adder ( input wire A, input wire B, output wire Sum, output wire Carry ); assign Sum = A ^ B; // XOR assign Carry = A & B; // AND endmodule module half_subtractor ( input wire A, input wire B, output wire Diff, output wire Borrow ); assign Diff = A ^ B; // XOR assign Borrow = (~A) & B; // A' . B endmodule
 ### Testbench Program
-
+gedit half_add_sub.v module half_adder ( input wire A, input wire B, output wire Sum, output wire Carry ); assign Sum = A ^ B; // XOR assign Carry = A & B; // AND endmodule module half_subtractor ( input wire A, input wire B, output wire Diff, output wire Borrow ); assign Diff = A ^ B; // XOR assign Borrow = (~A) & B; // A' . B endmodule
 
 ### Truth Table
-
-
-<img width="645" height="87" alt="TT3" src="https://github.com/user-attachments/assets/37e33bb3-d647-45d5-b610-c255d7e41b8b" />
+A   B    SUM(HA    CARRY(HA)   DIFF(HS)    BORROW(HS)
+0   0     0          0           0            0
+0   1     1          0           1            1
+1   0     1          0           1            0        
+1   1     0          1           0            0
 
 ### Simulation Procedure
 
@@ -84,27 +85,8 @@ The Half Adder and Half Subtractor were realized using Verilog HDL:
 The design was compiled and simulated using Synopsys VCS, and the functionality was verified using DVE waveform analysis, matching the expected truth table.
 
 ### Output
+<img width="1600" height="845" alt="EXPREIMENT 3" src="https://github.com/user-attachments/assets/9cca2c7c-a730-40fc-af1b-043dd7bb06a3" />
 
-
-### Viva-Voce Questions
-
-•	What is a Half Adder, and what are its limitations compared to a Full Adder?
-
-•	What is a Half Subtractor, and what does the Borrow output signify?
-
-•	Why is the Sum/Difference expression identical (A⊕B) for both circuits, while Carry and Borrow differ?
-
-•	What gate realizes the XOR function, and why is it central to both circuits?
-
-•	What is the purpose of a Verilog testbench?
-
-•	Why is a VCD file generated, and what does $dumpvars(0, tb) do?
-
-•	What is the purpose of ./simv?
-
-•	What is the difference between simulation and synthesis?
-
-•	How would you extend this design to a Full Adder/Full Subtractor?
 
 ### Result
 
